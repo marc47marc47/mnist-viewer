@@ -44,8 +44,10 @@ fn main() -> io::Result<()> {
         println!("Number of items: {}", data.sizes[0]);
 
         loop {
-            println!("
-Enter the index of the item to display (or 'q' to go back):");
+            println!(
+                "
+Enter the index of the item to display (or 'q' to go back):"
+            );
             let mut index_str = String::new();
             io::stdin().read_line(&mut index_str)?;
             let index_str = index_str.trim();
@@ -67,7 +69,8 @@ Enter the index of the item to display (or 'q' to go back):");
                 continue;
             }
 
-            if data.sizes.len() == 3 { // Image data
+            if data.sizes.len() == 3 {
+                // Image data
                 let image_size = (data.sizes[1] * data.sizes[2]) as usize;
                 let start = index * image_size;
                 let end = start + image_size;
@@ -85,7 +88,8 @@ Enter the index of the item to display (or 'q' to go back):");
                     }
                     println!();
                 }
-            } else { // Label data
+            } else {
+                // Label data
                 println!("Displaying label at index {}: {}", index, data.data[index]);
             }
         }
